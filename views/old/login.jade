@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title Login
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900')
+    link(rel='stylesheet', href='/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/style.css')
+  body
+    .container
+      .login-form
+        .card
+          h1.title Login
+          form(action="/login", method="POST")
+            .input-container
+              input#Username(type='text', required='required', placeholder='Username', name="username")
+            .input-container
+              input#Password(type='password', required='required', placeholder='Password', name="password")
+            .button-container.text-center
+              button.card-btn(type="submit")
+                span Login
+              button(type="button")
+                a(href="/register") Register
+        .card.alt
+          span.fa-stack.fa-5x
+            i.fa.fa-circle.fa-stack-2x
+            i.fa.fa-pencil.fa-stack-1x.fa-inverse
+

@@ -1,0 +1,176 @@
+html, body {
+  background: #e9e9e9;
+  color: #666666;
+  font-family: 'RobotoDraft', 'Roboto', sans-serif;
+  font-size: 14px;
+  height: 100%;
+  width: 100%;
+}
+
+/* Container */
+.login-form {
+  padding-top: 50px;
+  position: relative;
+  max-width: 460px;
+  margin: auto;
+}
+
+/* Card */
+.card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 5px;
+  padding: 80px 0 40px 0;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+.card .title {
+  position: relative;
+  border-left: 5px solid #ed2553;
+  margin: 0 0 35px;
+  padding: 10px 0 10px 50px;
+  color: #ed2553;
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.card .input-container {
+  position: relative;
+  margin: 0 60px 50px;
+}
+.card .input-container input {
+  outline: none;
+  position: relative;
+  background: none;
+  width: 100%;
+  height: 60px;
+  color: #212121;
+  font-size: 24px;
+  font-weight: 400;
+  border: 0;
+  border-bottom: 2px solid rgba(0, 0, 0, .2);
+}
+.card .input-container input:focus{
+  border-bottom: 2px solid rgba(237, 37, 83, 0.8);
+}
+
+.card .button-container button {
+  cursor: pointer;
+  position: relative;
+  background: #ffffff;
+  width: 160px;
+  border: 2px solid #e3e3e3;
+  padding: 20px 0;
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .3s ease;
+}
+
+.card .button-container a{
+  color: #ddd;
+}
+.card .button-container button span {
+  position: relative;
+  color: #ddd;
+}
+
+.card .button-container button:hover, .card .button-container button:active, .card .button-container button:focus {
+  border-color: #ed2553;
+}
+.card .button-container button:hover span, .card .button-container button:active span, .card .button-container button:focus span {
+  color: #ed2553;
+}
+
+
+.card.alt {
+  position: absolute;
+  top: 80px;
+  right: -70px;
+  width: 140px;
+  height: 140px;
+  background: none;
+  padding: 0;
+  transition: .3s ease;
+}
+
+.fa-circle{
+  color: #ed2553;
+}
+
+.navbar-inverse {
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.title{
+  line-height: 1;
+  padding-left: 5px;
+  color: #252525;
+  font-family: 'RobotoDraft', 'Roboto', sans-serif;
+  font-size: 44px;
+  font-weight: 300;
+  margin-top: 45px;
+}
+
+.line{
+  display: block;
+  height: 1px;
+  background: #e0e0e0;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.light-box{
+  height: 100%;
+  background: #fff;
+}
+
+.button-container{
+  display: block;
+  margin-bottom: 35px;
+}
+
+.button-container .img-button{
+  color: #666666;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.button-container a#new-button{
+  float: left;
+}
+
+.img-button:hover .content-btn-right{
+  color: #000;
+}
+
+.img-button:hover .plus-symbol{
+  opacity: 1;
+}
+
+.clip16x16{
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 2px;
+  float: left;
+}
+
+.button-container .content-btn-right{
+  margin-left: 6px;
+}
+
+.plus-symbol{
+  position: absolute;
+  top: -51px;
+  left: -19px;
+  opacity: 0.65;
+}
+
+.light-box .container #new-post{
+  margin-top: 30px;
+}
