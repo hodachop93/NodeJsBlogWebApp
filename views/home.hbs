@@ -2,20 +2,44 @@
 
 <div class="light-box">
   <div class="container">
-    <h1 class="title">Notebook</h1>
-    <div class="line"></div>
-    <div class="button-container">
 
-      <a href="/{{username}}/new-post" class="img-button" id="new-button">
-        <div class="clip16x16">
-          <img class="plus-symbol" src="images/one_note.png" alt="image">
+
+    {{#if loggedIn}}
+    {{> management-tool}}
+    {{/if}}
+
+    {{!-- posts --}}
+    {{#each posts}}
+    <div class="col-sm-12 post">
+      <div class="thumbnail">
+
+        <a href="/{{author}}/posts/{{_id}}">
+          <img src="/upload/{{picture}}">
+        </a>
+
+
+      </div>
+      <div class="caption">
+        <div class="item-info">
+          <div>
+            <a href="/{{author}}/posts/{{_id}}" class="post-title">{{title}}</a>
+
+            {{#if ../editable}}
+              <div class="btn-group">
+                <a href="" id="btn-edit"></a>
+                <a href="" id="btn-delete"></a>
+              </div>
+            {{/if}}
+
+          </div>
+          <div class="author">
+            <span id="author-name">{{author}}</span>
+            <span id="date_created">posted on {{date_created}}</span>
+          </div>
+          <div class="teaser">{{teaser}}</div>
         </div>
-        <span class="content-btn-right">New</span>
-      </a>
-
-      <a href="" class="img-button" id="manage-button">
-
-      </a>
+      </div>
     </div>
+    {{/each}}
   </div>
 </div>

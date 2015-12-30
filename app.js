@@ -3,11 +3,12 @@ var session = require('express-session');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
+// var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var handlebars = require('express-handlebars');
 var routes = require('./routes/route');
+// var userRoute = require('./routes/user_route');
 var credentials = require('./credentials');
 
 var app = express();
@@ -64,17 +65,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-app.use(cookieParser());
+// app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
 app.use(session({
   secret: 'BlogWebApp',
   saveUninitialized: true,
-  resave: true
+  resave: false
 }));
 
 app.use('/', routes);
+// app.use('/:username', userRoute);
 
 /*var sess;
 route(app, sess);*/

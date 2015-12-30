@@ -1,0 +1,22 @@
+{{> navbar}}
+
+<div class="light-box">
+  <div class="container">
+    <h1 class="title">{{post.title}}</h1>
+    <div class="line"></div>
+
+    <div class="post" style="background: #fff">
+      <div class="caption">
+        <div class="author">
+          <span>Date created: </span>
+          <span id="date_created">{{post.date_created}} by </span>
+          <span id="author-name">{{post.author}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-content">
+      {{{post.content}}}
+    </div>
+  </div>
+</div>

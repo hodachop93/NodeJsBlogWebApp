@@ -3,16 +3,26 @@ var User = require('../data/models/user');
 var Post = require('../data/models/post');
 var loadUser = require('../middlewares/load_user.js');
 var uploadPost = require('../middlewares/upload_post')
+var loadAllPosts = require('../middlewares/load_all_posts');
+var loadAllPostsByUsername = require('../middlewares/load_all_posts_by_username');
+var loadPost = require('../middlewares/load_post');
 var router = express.Router();
 var sess;
 
-router.get('/', function(req, res, next) {
+router.get('/', loadAllPosts, function(req, res, next) {
   sess = req.session;
+
+  var loggedIn = false;
+  var username = null;
   if (sess.username) {
-    res.redirect('/' + sess.username);
-  } else {
-    res.redirect('/login');
+    loggedIn = true;
+    username = sess.username;
   }
+  res.render('home', {
+    loggedIn: loggedIn,
+    posts: req.posts,
+    username: username
+  });
 });
 
 router.get('/login', function(req, res) {
@@ -20,17 +30,18 @@ router.get('/login', function(req, res) {
 });
 
 router.post('/login', function(req, res, next) {
+  sess = req.session;
   User.findOne({
     username: req.body.username
   }, function(err, user, next) {
     if (err) next(err);
     if (!user) {
       var err = new Error('Username or password incorrect');
-      console.log(err);
       err.status = 404;
       next(err);
     }
-    res.redirect('/' + req.body.username);
+    sess.username = req.body.username;
+    res.redirect('/' + req.body.username + '/posts');
   });
 });
 
@@ -64,10 +75,23 @@ router.get('/logout', function(req, res, next) {
   });
 });
 
-router.get('/:username', function(req, res, next) {
-  res.render('home', {
-    username: req.params.username
-  });
+router.get('/:username/posts', loadAllPostsByUsername, function(req, res, next) {
+  sess = req.session;
+  if (sess.username) {
+    console.log('co the edit');
+    res.render('home', {
+      loggedIn: true,
+      username: req.params.username,
+      posts: req.posts,
+      editable: true
+    });
+  }else{
+    /*var err = new Error('Not found');
+    err.status = 404;
+    next(err);*/
+    res.redirect('/login');
+  }
+
 });
 
 router.get('/:username/new-post', function(req, res, next) {
@@ -76,8 +100,13 @@ router.get('/:username/new-post', function(req, res, next) {
 
 router.post('/:username/new-post', uploadPost, function(req, res, next) {
   //redirect to home page
-  console.log(req.body);
-  res.redirect('/');
+  res.redirect('/' + req.params.username + '/' + posts);
+});
+
+router.get('/:username/posts/:id', loadPost, function(req, res, next) {
+  res.render('post-content', {
+    post: req.post
+  });
 });
 
 module.exports = router;

@@ -3,10 +3,11 @@ html, body {
   color: #666666;
   font-family: 'RobotoDraft', 'Roboto', sans-serif;
   font-size: 14px;
-  height: 100%;
   width: 100%;
 }
-
+a:hover{
+  text-decoration: none;
+}
 /* Container */
 .login-form {
   padding-top: 50px;
@@ -77,13 +78,16 @@ html, body {
   color: #ddd;
 }
 
-.card .button-container button:hover, .card .button-container button:active, .card .button-container button:focus {
+.card .button-container button:hover, .card .button-container button:active, .card .button-container button:focus  {
   border-color: #ed2553;
 }
-.card .button-container button:hover span, .card .button-container button:active span, .card .button-container button:focus span {
+.card .button-container button:hover span, .card .button-container button:active span, .card .button-container button:focus span  {
   color: #ed2553;
 }
-
+.card .button-container button:hover a, .card .button-container button:active a, .card .button-container button:focus a{
+  color: #ed2553;
+  text-decoration: none;
+}
 
 .card.alt {
   position: absolute;
@@ -130,7 +134,7 @@ html, body {
 
 .button-container{
   display: block;
-  margin-bottom: 35px;
+  margin-bottom: 0;
 }
 
 .button-container .img-button{
@@ -171,6 +175,83 @@ html, body {
   opacity: 0.65;
 }
 
-.light-box .container #new-post{
+.light-box #new-post{
   margin-top: 30px;
+}
+
+.light-box .post{
+  padding: 0;
+  border-radius: 0;
+  background-color: #f6f6f6;
+  border-color: #f6f6f6;
+  position: relative;
+  margin-top: 30px;
+}
+
+.light-box .post .thumbnail{
+  padding: 0;
+  float: left;
+  margin-bottom: 0;
+}
+
+.light-box .post .thumbnail img{
+  width: 200px;
+  height: 150px;
+  background-size: cover;
+}
+
+.light-box .post .caption{
+  overflow: hidden;
+  padding: 9px;
+  padding-left: 30px;
+}
+
+.light-box .post .caption .post-title{
+  overflow: hidden;
+  display: inline-block;
+  font-size: 24px;
+  color: #343434;
+  font-weight: 500;
+}
+
+.light-box .post .caption .author{
+  margin-bottom: 8px;
+}
+
+.light-box .post .caption .author span{
+  color: #6f6f6f;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.light-box .post .caption .author span#author-name{
+  color: #0fa19f;
+}
+
+.light-box .post .caption .teaser{
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.btn-group{
+  display: inline-block;
+  float: right;
+}
+
+.btn-group #btn-edit{
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  background: url('../images/ic_edit.png') center no-repeat;
+  background-size: 19px;
+}
+
+.btn-group #btn-delete{
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  background: url('../images/ic_delete.png') center no-repeat;
+  background-size: 19px;
 }

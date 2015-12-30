@@ -1,4 +1,5 @@
 var Post = require('../data/models/post');
+var dateformat = require('dateformat');
 
 function loadPost(req,res,next){
   var id = req.params.id;
@@ -10,6 +11,8 @@ function loadPost(req,res,next){
     if(!post){
       return res.send('Not found', 404);
     }
+    //create date_created property for post
+    post.date_created = dateformat(post.time);
     req.post = post;
     next();
   });
