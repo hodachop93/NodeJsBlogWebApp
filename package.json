@@ -17,7 +17,8 @@
     "express-handlebars": "~2.0.1",
     "tinymce": "~4.3.2",
     "formidable": "~1.0.17",
-    "dateformat": "~1.0.12"
+    "dateformat": "~1.0.12",
+    "angular": "~1.4.8"
   },
   "devDependencies": {
     "debug": "^2.2.0",

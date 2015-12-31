@@ -5,7 +5,7 @@
 
 
     {{#if loggedIn}}
-    {{> management-tool}}
+      {{> management-tool}}
     {{/if}}
 
     {{!-- posts --}}
@@ -26,8 +26,8 @@
 
             {{#if ../editable}}
               <div class="btn-group">
-                <a href="" id="btn-edit"></a>
-                <a href="" id="btn-delete"></a>
+                <a href="/{{author}}/posts/{{_id}}?action=update" id="btn-edit"></a>
+                <a href="/{{author}}/posts/{{_id}}?action=delete" id="btn-delete"></a>
               </div>
             {{/if}}
 

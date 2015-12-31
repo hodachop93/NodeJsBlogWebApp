@@ -1,25 +1,25 @@
 {{#section 'head'}}
-<title>New post</title>
+<title>{{title}}</title>
 {{/section}}
 
 {{> navbar}}
 
 <div class="light-box">
   <div class="container">
-    <h1 class="title">Create a new post</h1>
+    <h1 class="title">{{title}}</h1>
     <div class="line"></div>
 
     <form action="" class="form-horizontal" method="POST" enctype="multipart/form-data" id="new-post">
       <div class="form-group">
         <label for="title" class="control-label col-sm-2">Title</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" name="title" placeholder="Title">
+          <input type="text" class="form-control" name="title" placeholder="Title" value="{{post.title}}">
         </div>
       </div>
       <div class="form-group">
         <label for="teaser" class="control-label col-sm-2">Teaser</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" name="teaser" placeholder="Teaser">
+          <input type="text" class="form-control" name="teaser" placeholder="Teaser" value="{{post.teaser}}">
         </div>
       </div>
       <div class="form-group">
@@ -31,7 +31,7 @@
       <div class="form-group">
         <label for="Content" class="control-label col-sm-2">Content</label>
         <div class="col-sm-6">
-          <textarea class="form-control content-editor" name="content" placeholder="Content"></textarea>
+          <textarea class="form-control content-editor" name="content" placeholder="Content">{{post.content}}</textarea>
         </div>
       </div>
       <div class="form-group">
