@@ -8,7 +8,7 @@ module.exports = uploadPost;
 function uploadPost(req, res, next) {
   var form = new formidable.IncomingForm();
 
-  var saveDir = path.resolve(__dirname, '../public/upload/');
+  
   form.uploadDir = path.resolve(__dirname, '../public/tmp/');
 
   var id = req.params.id;
@@ -62,6 +62,7 @@ function createNewPost(form, req, next) {
 }
 
 function uploadPicture(post, files, next) {
+  var saveDir = path.resolve(__dirname, '../public/upload/');
   var extension = path.extname(files.picture.name);
   var newNameFile = post.author + '_' + post.time + extension;
   fs.rename(files.picture.path, saveDir + '/' + newNameFile, function(err) {
